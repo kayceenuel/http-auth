@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", homeHandler)
+	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/200", status200Handler)
 	http.HandleFunc("/404", status404Handler)
 	http.HandleFunc("/500", status500Handler)
@@ -16,8 +16,4 @@ func main() {
 
 	fmt.Println("Server starting on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
-}
-
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the home page!")
 }
