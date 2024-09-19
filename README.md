@@ -6,11 +6,20 @@ This project implements a simple HTTP server with various features including bas
 
 ## Features
 
-- Responds to GET and POST requests
-- Handles different HTTP status codes (200, 404, 500)
-- Implements basic HTTP authentication
-- Includes rate limiting
-- Escapes HTML in user inputs to prevent XSS attacks
+- **Home Page**: Displays a welcome message.
+- **GET and POST Handlers**: Handles query parameters and POST data.
+- **Rate Limiting**: Limits the number of requests to prevent abuse.
+- **Basic Authentication**: Protects certain routes with basic authentication.
+- **Status Handlers**: Returns different HTTP status codes.
+
+## Endpoints
+
+- `/`: Home page
+- `/200`: Returns a "200 OK" message
+- `/404`: Returns a "404 Not Found" message
+- `/500`: Returns a "500 Internal Server Error" message
+- `/authenticated`: Protected route requiring basic authentication
+- `/limited`: Rate-limited endpoint
 
 ## Prerequisites
 
@@ -77,7 +86,7 @@ The server will start on `http://localhost:8080`.
 
 ### Automated Testing
 
-Run the test suite with:
+Run test with
 
 ```
 go test
@@ -90,8 +99,5 @@ Install ApacheBench (ab) and run:
 ```
 ab -n 10000 -c 100 'http://localhost:8080/'
 ```
-
-Analyze the results to understand the server's performance under load.
-
 
 
