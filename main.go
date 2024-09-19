@@ -4,9 +4,17 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/200", status200Handler)
 	http.HandleFunc("/404", status404Handler)
