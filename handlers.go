@@ -16,7 +16,6 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleGet(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "")
 	fmt.Fprintf(w, "Welcome")
 	fmt.Fprintf(w, "Query parameters:")
 	for key, values := range r.URL.Query() {
@@ -31,9 +30,8 @@ func handlePost(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error parsing form", http.StatusBadRequest)
 		return
 	}
-	fmt.Fprintf(w, "")
 	fmt.Fprintf(w, "Received POST data")
-	for key, values := range r.URL.Query() {
+	for key, values := range r.Form {
 		for _, value := range values {
 			fmt.Fprintf(w, "%s: %s", html.EscapeString(key), html.EscapeString(value))
 		}
