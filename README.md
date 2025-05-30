@@ -1,5 +1,6 @@
 
 ```markdown
+```
 # HTTP Authentication Server
 
 This project implements a simple HTTP server with various features including basic authentication, rate limiting, and handling different HTTP methods and status codes.
